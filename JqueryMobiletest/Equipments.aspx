@@ -25,7 +25,7 @@
             <div id="divEquipments"></div>
             <video id="video" width="320" height="240" autoplay></video> 
             <button id="btnClick">Snap Photo</button> 
-            <canvas id="canvas" width="320" height="240"></canvas> 
+            <canvas id="canvas" width="640" height="480"></canvas> 
         </div>
         <div data-role="footer" data-position="fixed">
             <div data-role="navbar">

@@ -4,6 +4,7 @@
 });
 function wfindexClass() {
     this.pageinit = function () {
+        var CameraSupport = new CameraSupportClass();
     }
 }
 
