@@ -1,0 +1,61 @@
+﻿.Tabs {
+    z-index: 1000;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    border-bottom: 1px solid #e1dfdf;
+    left: 0px;
+    text-align: left;
+}
+    .Tabs .Tab {
+        display: inline-block;
+        padding: 7px 10px 7px 10px;
+        border: 1px solid #e1dfdf;
+        border-radius: 6px 6px 0px 0px;
+        cursor: pointer;
+        background-color: beige;
+        text-align: center;
+        width: 100px;
+    }
+    .Tabs .Selected {
+        background-color: #f6c494;
+    }
+        .Tabs .Tab label {
+            font-family: 'Microsoft Sans Serif';
+            font-size: 12px;
+        }
+    .Tabs.Bottom {
+        position: fixed;
+        bottom: 0px;
+    }
+
+.TabsContent {
+    margin-bottom:40px;
+}
+
+/*
+@media all and (max-width: 500px) {
+    .Tabs {
+        position: fixed;
+        left: inherit;
+        width: inherit;
+        top: 0px;
+        right: 0px;
+        border-bottom: inherit;
+        border-bottom: 1px none #e1dfdf;
+    }
+        .Tabs .Tab {
+            display: inherit;
+            padding: 10px 10px 10px 10px;
+            margin-bottom: 85px; 
+            -webkit-transform-origin: right bottom;
+            -moz-transform-origin: right bottom;
+            -ms-transform-origin: right bottom;
+            -o-transform-origin: right bottom;
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+        }
+}
+*/

@@ -1,0 +1,19 @@
+﻿/*Sets color/fading to placeholder inside textboxes*/
+::-webkit-input-placeholder {
+    color: #e1dfdf;
+    opacity: 1 !important;
+}
+
+:-moz-placeholder {
+    color: #e1dfdf;
+    opacity: 1 !important;
+}
+
+::-moz-placeholder {
+    color: #e1dfdf;
+    opacity: 1 !important;
+}
+
+:-ms-input-placeholder {
+    color: #e1dfdf;
+}

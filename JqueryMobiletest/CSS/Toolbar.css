@@ -1,0 +1,65 @@
+﻿.Toolbar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding: 0px;
+    margin: 0px;
+    z-index: 2000;
+    display: inline-flex;
+    flex-wrap:nowrap;
+    background-color: beige;
+    width: 100%;
+}
+    .Toolbar .Right {
+        float: right;
+    }
+    .Toolbar .Button {
+        position: relative;
+        min-width: 70px;
+        padding: 10px 10px 10px 10px;
+        margin: 0px;
+        border: 1px solid #e1dfdf;
+        cursor: pointer;
+        background-color: beige;
+    }
+        .Toolbar .Button label {
+            font-family: 'Microsoft Sans Serif';
+            font-size: 12px;
+            position: relative;
+            top: -1px;
+        }
+    .Toolbar .Vertical {
+        position: absolute;
+        background-color: transparent;
+    }
+        .Toolbar .Vertical .Button {
+            min-width: 100px;
+            left: -11px;
+            top: 11px;
+            background-color: beige;
+        }
+
+@media all and (max-width: 550px) {
+    .Toolbar {
+        width:120px;
+        /*right: 0px;*/
+        z-index: 800;
+        flex-wrap: wrap;
+    }
+        .Toolbar .Button {
+            flex-basis: 100%;
+        }
+        .Toolbar .Vertical {
+            position: relative;
+            list-style-position:outside;
+            top: 11px;
+            display: inline-flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+            .Toolbar .Vertical .Button {
+                left: 0px;
+                top: 0px;
+            }
+
+}
