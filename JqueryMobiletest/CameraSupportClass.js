@@ -1,29 +1,44 @@
-﻿function CameraSupportClass() {
-    var m_Video;
+﻿function CameraSupportClass(p_Video, p_Canvas) {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        var video = document.getElementById(p_Video);
+        var canvas = document.getElementById(p_Canvas);
+        var context = canvas.getContext("2d");
+
         const constraints = {
             video: true,
             audio: false
         };
-        // Not adding `{ audio: true }` since we only want video now
-        navigator.mediaDevices.getUserMedia(constraints)
-            .then(
-                stream => {
-                    window.stream = stream;
-                    m_Video = document.getElementById("video");
-                    m_Video.srcObject = stream;
+        navigator.mediaDevices.getUserMedia(constraints).then(
+            stream => {
+                video.stream = stream;
+                video.srcObject = stream;
+            });
 
-                });
+        this.ProcessImage = function (p_Callback) {
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            var m_DataURL = canvas.toDataURL("image/png");
+            var m_Data = '{'
+            m_Data = m_Data + '"p_DataURL":"' + m_DataURL + '"'
+            m_Data = m_Data + '}'
+            $.ajax({
+                type: "POST",
+                url: "ImageProcessor.asmx/Decode",
+                data: m_Data,
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (p_Result) {
+                    var apiUrl = p_Result.d.split('///')[1];
+                    var accessKey = p_Result.d.split('///')[0];
+                    (p_Callback != 'undefined') ? p_Callback(apiUrl, accessKey) : function () { return false; }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
+            });
+        }
     }
-    $("#btnClick").on("click", function () {
-        var m_Canvas = document.getElementById("canvas");
-        m_Canvas.width = m_Video.videoWidth;
-        m_Canvas.height = m_Video.videoHeight;
-        var m_Context = m_Canvas.getContext("2d");
-        event.preventDefault();
-        var imageWidth = m_Video.videoWidth;
-        var imageHeight = m_Video.videoHeight;
-        m_Context.drawImage(m_Video, 0, 0, imageWidth, imageHeight);
-    });
 }
 

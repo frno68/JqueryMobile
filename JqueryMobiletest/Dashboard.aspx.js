@@ -32,6 +32,9 @@
 
 function wfdashboardClass() {
     this.pageinit = function () {
+        API.SetApiUrl(localStorage.apiUrl);
+        API.SetAccessKey(localStorage.accessKey);
+
         var m_Resource = '/api/v2/servicerequestssummary?username=frno&orderby=-assignedto'
         API.GET(m_Resource,
             function (p_Json) {

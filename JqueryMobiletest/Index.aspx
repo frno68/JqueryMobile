@@ -18,10 +18,9 @@
                 <a data-rel="back" data-icon="back" data-iconpos="notext"></a>
             </div>
             <div data-role="content">
-                <div id="divIndex"></div>
-                <video id="video" width="320" height="240" autoplay></video> 
-                <button id="btnClick">Snap Photo</button> 
-                <canvas id="canvas" width="320" height="240"></canvas> 
+                <video id="video" autoplay></video>
+                <button id="btnButton">Snap Photo</button> 
+                <canvas id="canvas"></canvas> 
             </div>
             <div data-role="footer">
                 <p>&nbsp;</p>

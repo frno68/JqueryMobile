@@ -66,6 +66,12 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="zxing, Version=0.16.4.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.4\lib\net45\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.4.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.4\lib\net45\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -765,6 +771,7 @@
     <Content Include="Dashboard.aspx.js" />
     <Content Include="Equipments.aspx" />
     <Content Include="Equipments.aspx.js" />
+    <Content Include="ImageProcessor.asmx" />
     <Content Include="Index.aspx" />
     <Content Include="Index.js" />
     <Content Include="Global.asax" />
@@ -1115,6 +1122,10 @@
     <Compile Include="Equipments.aspx.vb">
       <DependentUpon>Equipments.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ImageProcessor.asmx.vb">
+      <DependentUpon>ImageProcessor.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Index.aspx.designer.vb">
       <DependentUpon>Index.aspx</DependentUpon>
