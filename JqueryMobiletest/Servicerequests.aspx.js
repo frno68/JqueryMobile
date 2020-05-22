@@ -38,6 +38,7 @@ function wfservicerequestsClass() {
                         'Id',
                         'Identifier',
                         'Heading',
+                        'Description',
                         function (p_Div) {
                             $('#divServicerequests').html('');
                             $(p_Div).attr('id', $('#divServicerequests').attr('id'));

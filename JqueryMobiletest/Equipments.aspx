@@ -44,7 +44,7 @@
         <div data-role="content">
             <div id="divEquipment"></div>
         </div>
-        <div data-role="footer">
+        <div data-role="footer" data-position="fixed">
             <p>&nbsp;</p>
         </div>
     </div>    

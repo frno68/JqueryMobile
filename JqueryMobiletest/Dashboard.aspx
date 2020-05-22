@@ -32,7 +32,7 @@
             <div id="preventivemaintenancessummary">
             </div>
         </div>
-        <div data-role="footer">
+        <div data-role="footer" data-position="fixed">
             <p>&nbsp;</p>
         </div>
         <div id="menu1" data-role="panel" data-display="push" data-position-fixed="true">

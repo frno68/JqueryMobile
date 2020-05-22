@@ -1,33 +1,6 @@
 ﻿$(document).ready(function window_onload() {
     var wfdashboard = new wfdashboardClass();
     wfdashboard.pageinit();
-    $(document).on('servicerequestsummaryGET', function (p_Event) {
-        $('#servicerequestssummary').html('');
-        var m_Servicerequestssummary = $.parseJSON(p_Event.Json);
-        $(m_Servicerequestssummary).each(function (p_Index) {
-            var m_AmountDescription = m_Servicerequestssummary[p_Index].AmountDescription;
-            if (m_AmountDescription == '') {
-                $('#servicerequestssummary').append(
-                    $('<div></div>').append(
-                        $('<a></a>')
-                            .addClass('ui-btn')
-                            .html(m_Servicerequestssummary[p_Index].AssignedTo + ':' + m_Servicerequestssummary[p_Index].Amount)
-                            .prop('href', '#')
-                            .on('click', function () {
-                                event.preventDefault();
-                                localStorage.AssignedTo = m_Servicerequestssummary[p_Index].AssignedTo;
-                                localStorage.Signature = m_Servicerequestssummary[p_Index].Signature;
-                                localStorage.Skip = 0;
-                                window.location("Servicerequests.aspx");
-                            })
-                    )
-                );
-            }
-        });
-    });
-    $(document).on('workordersummaryGET', function (p_Event) {
-
-    });
 });
 
 function wfdashboardClass() {
@@ -58,7 +31,7 @@ function wfdashboardClass() {
                                         localStorage.Signature = m_Servicerequestssummary[p_Index].Signature;
                                         localStorage.AmountDescription = m_Servicerequestssummary[p_Index].AmountDescription;
                                         localStorage.Skip = 0;
-                                        window.location('Servicerequests.aspx');
+                                        window.location="Servicerequests.aspx";
                                     })
                             )
                         );
@@ -70,7 +43,7 @@ function wfdashboardClass() {
         var m_Resource = '/api/v2/workorderssummary?username=frno&orderby=-assignedto';
         API.GET(m_Resource,
             function (p_Json) {
-                var m_Event = jQuery.Event("servicerequestsummaryGET");
+                var m_Event = jQuery.Event("workordersummaryGET");
                 m_Event.Json = p_Json;
                 $(document).trigger(m_Event); 
 
@@ -91,7 +64,7 @@ function wfdashboardClass() {
                                     localStorage.Signature = m_Workorderssummary[p_Index].Signature;
                                     localStorage.AmountDescription = m_Workorderssummary[p_Index].AmountDescription;
                                     localStorage.Skip = 0;
-                                    window.location('Workorders.aspx');
+                                    window.location="Workorders.aspx";
                                 })
                             )
                         );
@@ -117,7 +90,7 @@ function wfdashboardClass() {
                                     localStorage.AssignedTo = m_Equipmentssummary[p_Index].AssignedTo;
                                     localStorage.Signature = m_Equipmentssummary[p_Index].Signature;
                                     localStorage.Skip = 0;
-                                    window.location('Equipments.aspx');
+                                    window.location="Equipments.aspx";
                                 })
                             )
                         );
@@ -144,7 +117,7 @@ function wfdashboardClass() {
                                     localStorage.AssignedTo = m_Preventivemaintenancessummary[p_Index].AssignedTo;
                                     localStorage.Signature = m_Preventivemaintenancessummary[p_Index].Signature;
                                     localStorage.Skip = 0;
-                                    window.location('Preventivemaintenances.aspx');
+                                    window.location="Preventivemaintenances.aspx";
                                 })
                             )
                         );

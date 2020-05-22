@@ -9,7 +9,7 @@
 function wfequipmentsClass() {
     this.pageinit = function () {
 
-        var CameraSupport = new CameraSupportClass();
+        //var CameraSupport = new CameraSupportClass();
 
         $('#wfequipments [data-icon="arrow-l"]').on('click', function () {
             localStorage.Skip = (parseInt(localStorage.Skip) == 0) ? 0 : parseInt(localStorage.Skip) - 20;
@@ -43,7 +43,8 @@ function wfequipmentsClass() {
                     new HTMLFactoryClass(m_Equipments).toList(
                         'Id',
                         'Identifier',
-                        'Devicetype,Brand,Model',
+                        'Identifier',
+                        'Devicetype,Brand,Model,OwnerDescription',
                         function (p_Div) {
                             $('#divEquipments').html('');
                             $(p_Div).attr('id', $('#divEquipments').attr('id'));

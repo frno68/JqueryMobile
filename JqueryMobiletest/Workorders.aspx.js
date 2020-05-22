@@ -37,6 +37,7 @@ function wfworkordersClass() {
                     new HTMLFactoryClass(m_Workorders).toList(
                         'Id',
                         'Identifier',
+                        'CustomerDescription',
                         'Faultdescription',
                         function (p_Div) {
                             $('#divWorkorders').html('');

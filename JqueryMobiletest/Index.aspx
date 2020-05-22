@@ -15,14 +15,13 @@
     <form id="form1" runat="server">
         <div data-role="page" id="wfindex">
             <div data-role="header" data-position="fixed">
-                <a data-rel="back" data-icon="back" data-iconpos="notext"></a>
+                <h1>Welcome</h1>
             </div>
             <div data-role="content">
-                <video id="video" autoplay></video>
-                <button id="btnButton">Snap Photo</button> 
-                <canvas id="canvas"></canvas> 
+                <video id="video" width="300" height="300" autoplay></video>
+                <canvas id="canvas" style="visibility:hidden;"></canvas> 
             </div>
-            <div data-role="footer">
+            <div data-role="footer" data-position="fixed">
                 <p>&nbsp;</p>
             </div>
         </div>    

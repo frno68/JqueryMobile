@@ -42,26 +42,34 @@
     this.toList = function (
         p_IdField,
         p_Identifier,
-        p_DescriptionFields,
+        p_Identifier2,
+        p_DescriptionFields,    
         p_Callback
     ) {
-        var m_Div = $('<div></div>');
+        var m_Div = $('<div></div>')
+        var m_Ul = $('<ul></ul>')
+            .attr("data-role", "listview")
+            .attr("data-inset","true")
         jQuery.each(_JsonObject, function (p_Index) {
+            var m_Li = $('<li></li>')
             var m_Id = _JsonObject[p_Index][p_IdField];
-            var m_Identifier = _JsonObject[p_Index][p_Identifier];
-            var m_DescriptionField = '';
-            var m_DescriptionFieldsArray = p_DescriptionFields.split(',');
-            jQuery.each(m_DescriptionFieldsArray, function (p_Index2) {
-                m_DescriptionField += (m_DescriptionField.length > 0 ? ' ' : '') + _JsonObject[p_Index][m_DescriptionFieldsArray[p_Index2]];
-            });
-            var m_Html = m_Identifier + (m_DescriptionField.length > 0 ? '<br />' + m_DescriptionField : '');
-            $('<a></a>')
+            var m_A = $('<a></a>')
                 .addClass('ui-btn')
-                .html(m_Html)
                 .prop('href', '#')
                 .attr('data-id', m_Id)
-                .appendTo(m_Div);
+            $('<h2></h2>')
+                .html(_JsonObject[p_Index][p_Identifier] + ' - ' + _JsonObject[p_Index][p_Identifier2])
+                .appendTo(m_A);
+            var m_DescriptionFieldsArray = p_DescriptionFields.split(',');
+            jQuery.each(m_DescriptionFieldsArray, function (p_Index2) {
+                $('<p></p>')
+                    .html(_JsonObject[p_Index][m_DescriptionFieldsArray[p_Index2]])
+                    .appendTo(m_A);
+            });
+            m_Li.append(m_A)
+            m_Ul.append(m_Li);
         });
+        m_Div.append(m_Ul);
         (p_Callback != 'undefined') ? p_Callback(m_Div) : function () { return false; }
         return m_Div;
     }
