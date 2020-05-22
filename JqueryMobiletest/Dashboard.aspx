@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script src="ApiClass.js" type="text/javascript"></script>
     <script src="Dashboard.aspx.js" type="text/javascript"></script>
-    <link href="CSS/FloatingLabel.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/Global.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">

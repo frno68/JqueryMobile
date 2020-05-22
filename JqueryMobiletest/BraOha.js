@@ -6,3 +6,4 @@
 //$('a[querystring]').on('click', function (event, data) {
 //    localStorage.querystring = $(this).attr('querystring');;
 //});
+

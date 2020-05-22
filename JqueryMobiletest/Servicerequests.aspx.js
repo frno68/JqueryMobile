@@ -36,8 +36,8 @@ function wfservicerequestsClass() {
 
                     new HTMLFactoryClass(m_Servicerequests).toList(
                         'Id',
-                        'Identifier',
-                        'Heading',
+                        'Identifier,Heading',
+                        'Registered',
                         'Description',
                         function (p_Div) {
                             $('#divServicerequests').html('');
