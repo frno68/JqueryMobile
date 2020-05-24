@@ -37,16 +37,34 @@
                 })
             );
             m_Div.append(m_Div2);
+
+            function getHeight(p_TextArea) {
+                $(p_TextArea).height('1px'); //Has to be set to get a proper scrollheight
+                return $(p_TextArea)[0].scrollHeight;
+            }
+
         });
         (p_Callback != 'undefined') ? p_Callback(m_Div) : function () { return false; }
         return m_Div;
     }
-    function getHeight(p_TextArea) {
-        $(p_TextArea).height('1px'); //Has to be set to get a proper scrollheight
-        return $(p_TextArea)[0].scrollHeight;
+
+    this.toControlGroupHorizontal = function (p_Callback) {
+        var m_Div = $('<div></div>', {
+            //'data-role': 'controlgroup'
+        });
+        jQuery.each(_JsonObject, function (p_Index) {
+            var m_AmountDescription = _JsonObject[p_Index].AmountDescription;
+            if (m_AmountDescription == '') {
+                $('<a></a>')
+                    .addClass('ui-btn')
+                    .html(_JsonObject[p_Index].AssignedTo + ':' + _JsonObject[p_Index].Amount)
+                    .prop('href', '#')
+                    .appendTo(m_Div);
+            }
+        });
+        (p_Callback != 'undefined') ? p_Callback(m_Div) : function () { return false; }
+        return m_Div;
     }
-
-
 
     this.toList = function (
         p_IdField,

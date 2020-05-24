@@ -4,7 +4,7 @@
 });
 function wfindexClass() {
     this.pageinit = function () { 
-        var CameraSupport = new CameraSupportClass("video", "canvas");
+        var CameraSupport = new CameraSupportClass("video");
         setInterval(function () {
             CameraSupport.ProcessImage(
                 function (apiUrl, accessKey) {

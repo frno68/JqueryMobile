@@ -1,7 +1,7 @@
-﻿function CameraSupportClass(p_Video, p_Canvas) {
+﻿function CameraSupportClass(p_Video) {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         var video = document.getElementById(p_Video);
-        var canvas = document.getElementById(p_Canvas);
+        var canvas = document.createElement("canvas");
         var context = canvas.getContext("2d");
 
         const constraints = {

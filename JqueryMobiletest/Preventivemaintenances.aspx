@@ -10,7 +10,7 @@
     <script src="ApiClass.js" type="text/javascript"></script>
     <script src="HTMLFactoryClass.js" type="text/javascript"></script>
     <script src="Preventivemaintenances.aspx.js" type="text/javascript"></script>
-    <link href="CSS/FloatingLabel.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/Global.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">

@@ -14,31 +14,32 @@ function wfdashboardClass() {
                 var m_Event = jQuery.Event("servicerequestsummaryGET");    
                 m_Event.Json = p_Json;
                 $(document).trigger(m_Event); 
-                $('#servicerequestssummary').html('');
                 var m_Servicerequestssummary = $.parseJSON(p_Json);
+                var m_Div = $('<div></div>')
+                    .attr("id", "servicerequestssummary")
+                    .attr("data-role", "controlgroup")
+                    .attr("data-type", "horizontal");
                 $(m_Servicerequestssummary).each(function (p_Index) {
                     var m_AmountDescription = m_Servicerequestssummary[p_Index].AmountDescription;
                     if (m_AmountDescription == '') {
-                        $('#servicerequestssummary').append(
-                            $('<div></div>').append(
-                                $('<a></a>')
-                                    .addClass('ui-btn')
-                                    .html(m_Servicerequestssummary[p_Index].AssignedTo + ':' + m_Servicerequestssummary[p_Index].Amount)
-                                    .prop('href', '#')
-                                    .on('click', function () {
-                                        event.preventDefault();
-                                        localStorage.AssignedTo = m_Servicerequestssummary[p_Index].AssignedTo;
-                                        localStorage.Signature = m_Servicerequestssummary[p_Index].Signature;
-                                        localStorage.AmountDescription = m_Servicerequestssummary[p_Index].AmountDescription;
-                                        localStorage.Skip = 0;
-                                        window.location="Servicerequests.aspx";
-                                    })
-                            )
-                        );
+                        m_Div.append(
+                            $('<a></a>')
+                            .addClass('ui-btn')
+                            .html(m_Servicerequestssummary[p_Index].AssignedTo + ':' + m_Servicerequestssummary[p_Index].Amount)
+                            .prop('href', '#')
+                            .on('click', function () {
+                                event.preventDefault();
+                                localStorage.AssignedTo = m_Servicerequestssummary[p_Index].AssignedTo;
+                                localStorage.Signature = m_Servicerequestssummary[p_Index].Signature;
+                                localStorage.AmountDescription = m_Servicerequestssummary[p_Index].AmountDescription;
+                                localStorage.Skip = 0;
+                                window.location = "Servicerequests.aspx";
+                            })
+                        )
                     }
                 });
-
-
+                $('#servicerequestssummary').replaceWith(m_Div);
+                $('div[data-role]').trigger('create');
             });
         var m_Resource = '/api/v2/workorderssummary?username=frno&orderby=-assignedto';
         API.GET(m_Resource,
@@ -46,84 +47,96 @@ function wfdashboardClass() {
                 var m_Event = jQuery.Event("workordersummaryGET");
                 m_Event.Json = p_Json;
                 $(document).trigger(m_Event); 
-
-                $('#workorderssummary').html('');
                 var m_Workorderssummary = $.parseJSON(p_Json);
+                var m_Div = $('<div></div>')
+                    .attr("id", "workorderssummary")
+                    .attr("data-role", "controlgroup")
+                    .attr("data-type", "horizontal");
                 $(m_Workorderssummary).each(function (p_Index) {
                     var m_AmountDescription = m_Workorderssummary[p_Index].AmountDescription;
                     if (m_AmountDescription == '') {
-                        $('#workorderssummary').append(
-                            $('<div></div>').append(
-                                $('<a></a>')
-                                .addClass('ui-btn')
-                                .html(m_Workorderssummary[p_Index].AssignedTo + ':' + m_Workorderssummary[p_Index].Amount)
-                                .prop('href', '#')
-                                .on('click', function () {
-                                    event.preventDefault();
-                                    localStorage.AssignedTo = m_Workorderssummary[p_Index].AssignedTo;
-                                    localStorage.Signature = m_Workorderssummary[p_Index].Signature;
-                                    localStorage.AmountDescription = m_Workorderssummary[p_Index].AmountDescription;
-                                    localStorage.Skip = 0;
-                                    window.location="Workorders.aspx";
-                                })
-                            )
-                        );
+                        m_Div.append(
+                            $('<a></a>')
+                            .addClass('ui-btn')
+                            .html(m_Workorderssummary[p_Index].AssignedTo + ':' + m_Workorderssummary[p_Index].Amount)
+                            .prop('href', '#')
+                            .on('click', function () {
+                                event.preventDefault();
+                                localStorage.AssignedTo = m_Workorderssummary[p_Index].AssignedTo;
+                                localStorage.Signature = m_Workorderssummary[p_Index].Signature;
+                                localStorage.AmountDescription = m_Workorderssummary[p_Index].AmountDescription;
+                                localStorage.Skip = 0;
+                                window.location="Workorders.aspx";
+                            })
+                        )
                     }
                 });
+                $('#workorderssummary').replaceWith(m_Div);
+                $('div[data-role]').trigger('create');
             });
         var m_Resource = '/api/v2/equipmentssummary?username=frno&orderby=-assignedto';
         API.GET(m_Resource,
             function (p_Json) {
-                $('#equipmentssummary').html('');
+                var m_Event = jQuery.Event("servicerequestsummaryGET");
+                m_Event.Json = p_Json;
+                $(document).trigger(m_Event); 
                 var m_Equipmentssummary = $.parseJSON(p_Json);
+                var m_Div = $('<div></div>')
+                    .attr("id", "servicerequestssummary")
+                    .attr("data-role", "controlgroup")
+                    .attr("data-type", "horizontal");
                 $(m_Equipmentssummary).each(function (p_Index) {
                     var m_AmountDescription = m_Equipmentssummary[p_Index].AmountDescription;
                     if (m_AmountDescription == '') {
-                        $('#equipmentssummary').append(
-                            $('<div></div>').append(
-                                $('<a></a>')
-                                .addClass('ui-btn')
-                                .html(m_Equipmentssummary[p_Index].AssignedTo + ':' + m_Equipmentssummary[p_Index].Amount)
-                                .prop('href', '#')
-                                .on('click', function () {
-                                    event.preventDefault();
-                                    localStorage.AssignedTo = m_Equipmentssummary[p_Index].AssignedTo;
-                                    localStorage.Signature = m_Equipmentssummary[p_Index].Signature;
-                                    localStorage.Skip = 0;
-                                    window.location="Equipments.aspx";
-                                })
-                            )
-                        );
+                        m_Div.append(
+                            $('<a></a>')
+                            .addClass('ui-btn')
+                            .html(m_Equipmentssummary[p_Index].AssignedTo + ':' + m_Equipmentssummary[p_Index].Amount)
+                            .prop('href', '#')
+                            .on('click', function () {
+                                event.preventDefault();
+                                localStorage.AssignedTo = m_Equipmentssummary[p_Index].AssignedTo;
+                                localStorage.Signature = m_Equipmentssummary[p_Index].Signature;
+                                localStorage.Skip = 0;
+                                window.location="Equipments.aspx";
+                            })
+                        )
                     }
                 });
-                $('#equipmentssummary').trigger('create');
+                $('#equipmentssummary').replaceWith(m_Div);
+                $('div[data-role]').trigger('create');
             });
         var m_Resource = '/api/v2/preventivemaintenancessummary?username=frno&orderby=-assignedto';
         API.GET(m_Resource,
             function (p_Json) {
-                $('#preventivemaintenancessummary').html('');
+                var m_Event = jQuery.Event("preventivemaintenancesummaryGET");
+                m_Event.Json = p_Json;
+                $(document).trigger(m_Event); 
                 var m_Preventivemaintenancessummary = $.parseJSON(p_Json);
+                var m_Div = $('<div></div>')
+                    .attr("id", "servicerequestssummary")
+                    .attr("data-role", "controlgroup")
+                    .attr("data-type", "horizontal");
                 $(m_Preventivemaintenancessummary).each(function (p_Index) {
                     var m_AmountDescription = m_Preventivemaintenancessummary[p_Index].AmountDescription;
                     if (m_AmountDescription != '') {
-                        $('#preventivemaintenancessummary').append(
-                            $('<div></div>').append(
-                                $('<a></a>')
-                                .addClass('ui-btn')
-                                .html(m_Preventivemaintenancessummary[p_Index].AssignedTo + ':' + m_AmountDescription + ':' + m_Preventivemaintenancessummary[p_Index].Amount)
-                                .prop('href', '#')
-                                .on('click', function () {
-                                    event.preventDefault();
-                                    localStorage.AssignedTo = m_Preventivemaintenancessummary[p_Index].AssignedTo;
-                                    localStorage.Signature = m_Preventivemaintenancessummary[p_Index].Signature;
-                                    localStorage.Skip = 0;
-                                    window.location="Preventivemaintenances.aspx";
-                                })
-                            )
-                        );
+                        m_Div.append(
+                            $('<a></a>')
+                            .addClass('ui-btn')
+                            .html(m_Preventivemaintenancessummary[p_Index].AssignedTo + ':' + m_AmountDescription + ':' + m_Preventivemaintenancessummary[p_Index].Amount)
+                            .prop('href', '#')
+                            .on('click', function () {
+                                event.preventDefault();
+                                localStorage.AssignedTo = m_Preventivemaintenancessummary[p_Index].AssignedTo;
+                                localStorage.Signature = m_Preventivemaintenancessummary[p_Index].Signature;
+                                localStorage.Skip = 0;
+                                window.location="Preventivemaintenances.aspx";
+                            })
+                        )
                     }
                 });
-                $('#preventivemaintenancessummary').trigger('create');
+                $('#preventivemaintenancessummary').replaceWith(m_Div);
+                $('div[data-role]').trigger('create');
             });
     }
 }
