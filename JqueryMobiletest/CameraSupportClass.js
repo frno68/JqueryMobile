@@ -19,6 +19,9 @@
             canvas.height = video.videoHeight;
             context.drawImage(video, 0, 0, canvas.width, canvas.height);
             var m_DataURL = canvas.toDataURL("image/png");
+            if (m_DataURL == '') {
+                (p_Callback != 'undefined') ? p_Callback('', '') : function () { return false; }
+            }
             var m_Data = '{'
             m_Data = m_Data + '"p_DataURL":"' + m_DataURL + '"'
             m_Data = m_Data + '}'
