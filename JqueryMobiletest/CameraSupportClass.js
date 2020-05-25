@@ -38,7 +38,7 @@
                     (p_Callback != 'undefined') ? p_Callback(apiUrl, accessKey) : function () { return false; }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert(errorThrown);
+                    //alert(errorThrown);
                 }
             });
         }
