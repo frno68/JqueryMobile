@@ -11,6 +11,17 @@
     <script src="HTMLFactoryClass.js" type="text/javascript"></script>
     <script src="Dashboard.aspx.js" type="text/javascript"></script>
     <link href="CSS/Global.css" rel="stylesheet" type="text/css" />
+    <style>
+        .yellowtext{
+            color:gold;
+        }
+        .greentext{
+            color:forestgreen;
+        }
+        .redtext{
+            color:red;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">

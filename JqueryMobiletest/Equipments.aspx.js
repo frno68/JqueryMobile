@@ -8,9 +8,7 @@
 });
 function wfequipmentsClass() {
     this.pageinit = function () {
-
         //var CameraSupport = new CameraSupportClass();
-
         $('#wfequipments [data-icon="arrow-l"]').on('click', function () {
             localStorage.Skip = (parseInt(localStorage.Skip) == 0) ? 0 : parseInt(localStorage.Skip) - 20;
             loadList();
@@ -27,10 +25,6 @@ function wfequipmentsClass() {
             if (localStorage.AssignedTo != 'undefined') {
                 m_QueryString += (m_QueryString != '') ? '&' : '';
                 m_QueryString += 'assignedto=' + localStorage.AssignedTo;
-            }
-            if (localStorage.Signature != 'undefined') {
-                m_QueryString += (m_QueryString != '') ? '&' : '';
-                m_QueryString += 'signatureidentifier=' + localStorage.Signature;
             }
             if (localStorage.Skip != 'undefined') {
                 m_QueryString += (m_QueryString != '') ? '&' : '';

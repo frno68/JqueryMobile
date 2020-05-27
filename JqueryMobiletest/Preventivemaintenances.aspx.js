@@ -37,7 +37,7 @@ function wfpreventivemaintenancesClass() {
                     new HTMLFactoryClass(m_Preventivemaintenances).toList(
                         'Id',
                         'EquipmentIdentifier',
-                        'EquipmentIdentifier',
+                        'Lastdate,Nextdate',
                         'Nextdate,Description',
                         function (p_Div) {
                             $('#divPreventivemaintenances').html('');

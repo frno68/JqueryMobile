@@ -8,6 +8,7 @@
 });
 function wfworkordersClass() {
     this.pageinit = function () {
+
         $('#wfworkorders [data-icon="arrow-l"]').on('click', function () {
             localStorage.Skip = (parseInt(localStorage.Skip) == 0) ? 0 : parseInt(localStorage.Skip) - 20;
             loadList();
@@ -36,9 +37,9 @@ function wfworkordersClass() {
 
                     new HTMLFactoryClass(m_Workorders).toList(
                         'Id',
-                        'Identifier,CustomerDescription',
+                        'Identifier',
                         'TranslatedStatus,StatusDate',
-                        'Faultdescription',
+                        'CustomerDescription,Faultdescription,Detaileddescription',
                         function (p_Div) {
                             $('#divWorkorders').html('');
                             $(p_Div).attr('id', $('#divWorkorders').attr('id'));

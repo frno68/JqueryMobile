@@ -30,7 +30,7 @@ Public Class ImageProcessor
         m_AccessKey = System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(m_AccessKey))
 
         AuthenticateUser(m_ApiUrl, m_AccessKey)
-        Return $"{m_AccessKey}///{m_ApiUrl}"
+        Return $"{m_ApiUrl}///{m_AccessKey}///{Session("UserName")}"
     End Function
     Private Function CreateImageFromDataURL(p_DataURL As String) As Image
         p_DataURL = p_DataURL.Substring(p_DataURL.IndexOf(",") + 1)
@@ -59,5 +59,7 @@ Public Class ImageProcessor
             m_CurrentUser = JsonConvert.DeserializeObject(m_JsonReturnValue, GetType(CurrentUser))
         End With
         FormsAuthentication.SetAuthCookie(m_CurrentUser.Username, False)
+        Session("UserName") = m_CurrentUser.Username.ToLower
+        Session("SignatureIdentifier") = m_CurrentUser.SignatureIdentifier.ToLower
     End Sub
 End Class

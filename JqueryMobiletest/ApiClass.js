@@ -2,14 +2,16 @@
 function APIClass() {
     //var _EndPoint = 'http://medusa-dev.softpro.se/Amsterdam';
     //var _Authorization = 'Authorization:Basic ZnJubzprYWxsZWt1bGE=';
-    var _EndPoint = 'http://support.softpro.se/support';
-    var _Authorization = 'Authorization:Basic OTk0NzI3NWItZWY1OC00NDNlLThlYjItMDUxMTg3M2U1ODAy';
-    this.SetApiUrl = function (p_ApiUrl) {
-        _EndPoint = p_ApiUrl;
-    };
-    this.SetAccessKey = function (p_AccessKey) {
-        _Authorization = 'Authorization:Basic ' + p_AccessKey;
-    }
+    //var _EndPoint = 'http://support.softpro.se/support';
+    //var _Authorization = 'Authorization:Basic OTk0NzI3NWItZWY1OC00NDNlLThlYjItMDUxMTg3M2U1ODAy';
+    var _EndPoint = localStorage.apiUrl;
+    var _Authorization = 'Authorization:Basic ' + localStorage.accessKey;
+    //this.SetApiUrl = function (p_ApiUrl) {
+    //    _EndPoint = p_ApiUrl;
+    //};
+    //this.SetAccessKey = function (p_AccessKey) {
+    //    _Authorization = 'Authorization:Basic ' + p_AccessKey;
+    //}
 
     this.GET = function (p_Resource, p_Callback) {
         var m_Data = '{'

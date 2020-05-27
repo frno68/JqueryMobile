@@ -33,9 +33,11 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (p_Result) {
-                    var apiUrl = p_Result.d.split('///')[1];
-                    var accessKey = p_Result.d.split('///')[0];
-                    (p_Callback != 'undefined') ? p_Callback(apiUrl, accessKey) : function () { return false; }
+                    var apiUrl = p_Result.d.split('///')[0];
+                    var accessKey = p_Result.d.split('///')[1];
+                    var userName = p_Result.d.split('///')[2];
+                    var signatureIdentifier = p_Result.d.split('///')[3];
+                    (p_Callback != 'undefined') ? p_Callback(apiUrl, accessKey, userName, signatureIdentifier) : function () { return false; }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     //alert(errorThrown);
