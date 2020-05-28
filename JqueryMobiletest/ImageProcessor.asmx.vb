@@ -16,8 +16,16 @@ Public Class ImageProcessor
     <WebMethod(True)>
     <ScriptMethod(ResponseFormat:=ResponseFormat.Json)>
     Public Function Decode(p_DataURL As String) As String
+        If p_DataURL.Length = 0 Then Return "///"
+        If p_DataURL.IndexOf(",") = -1 Then Return "///"
+        p_DataURL = p_DataURL.Substring(p_DataURL.IndexOf(",") + 1)
+        p_DataURL = p_DataURL.Trim("\0")
+        If p_DataURL.Length = 0 Then Return "///"
+
+        Dim m_Image As Image = CreateImageFromDataURL(p_DataURL)
+
         Dim m_BarcodeReader As New ZXing.BarcodeReader
-        Dim m_Result As Result = m_BarcodeReader.Decode(CreateImageFromDataURL(p_DataURL))
+        Dim m_Result As Result = m_BarcodeReader.Decode(m_Image)
         If m_Result Is Nothing Then
             Return "///"
         End If
@@ -33,8 +41,6 @@ Public Class ImageProcessor
         Return $"{m_ApiUrl}///{m_AccessKey}///{Session("UserName")}"
     End Function
     Private Function CreateImageFromDataURL(p_DataURL As String) As Image
-        p_DataURL = p_DataURL.Substring(p_DataURL.IndexOf(",") + 1)
-        p_DataURL = p_DataURL.Trim("\0")
         Dim m_Bytes As Byte() = Convert.FromBase64String(p_DataURL)
         Dim m_MemoryStream As New MemoryStream(m_Bytes)
         Return Image.FromStream(m_MemoryStream)

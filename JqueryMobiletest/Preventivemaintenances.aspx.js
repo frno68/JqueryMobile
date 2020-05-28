@@ -38,7 +38,7 @@ function wfpreventivemaintenancesClass() {
                         'Id',
                         'EquipmentIdentifier',
                         'Lastdate,Nextdate',
-                        'Nextdate,Description',
+                        'Description',
                         function (p_Div) {
                             $('#divPreventivemaintenances').html('');
                             $(p_Div).attr('id', $('#divPreventivemaintenances').attr('id'));
