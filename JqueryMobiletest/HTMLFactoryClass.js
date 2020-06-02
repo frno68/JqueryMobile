@@ -86,26 +86,24 @@
             var m_UpperLeftFieldsArray = p_UpperLeftFields.split(",");
             var m_Html = '';
             jQuery.each(m_UpperLeftFieldsArray, function (p_Index2) {
-                m_Html += (m_Html.length > 0 ? ' - ' : '') + _JsonObject[p_Index][m_UpperLeftFieldsArray[p_Index2]];
+                m_Html += (m_Html.length > 0 ? '</br>' : '') + _JsonObject[p_Index][m_UpperLeftFieldsArray[p_Index2]];
             });
-            $('<h2></h2>')
+            $('<div></div>')
                 .css({
-                    'position': 'absolute',
-                    'top': '-5px'
+                    'display':'inline-block'
                 })
-                .html(m_Html)
+                .append($('<h2></h2>').html(m_Html))
                 .appendTo(m_A);
 
             var p_UpperRightFieldsArray = p_UpperRightFields.split(",");
             var m_Html = '';
             jQuery.each(p_UpperRightFieldsArray, function (p_Index2) {
-                m_Html += (m_Html.length > 0 ? ' , ' : '') + _JsonObject[p_Index][p_UpperRightFieldsArray[p_Index2]];
+                m_Html += (m_Html.length > 0 ? '</br>' : '') + _JsonObject[p_Index][p_UpperRightFieldsArray[p_Index2]];
             });
             $('<p></p>')
                 .addClass('ui-li-aside')
                 .css({
-                    'position': 'absolute',
-                    'top': '5px'
+                    'display': 'inline-block'
                 })
                 .html(m_Html)
                 .appendTo(m_A);

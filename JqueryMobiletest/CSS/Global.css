@@ -1,1 +1,22 @@
 ﻿@import 'FloatingLabel.css';
+
+video {
+    width:100%;
+    text-align:center;
+    position: relative;
+}
+canvas {
+    display: none;
+}
+.yellowtext {
+    color: goldenrod;
+}
+
+.greentext {
+    color: forestgreen;
+}
+
+.redtext {
+    color: red;
+}
+

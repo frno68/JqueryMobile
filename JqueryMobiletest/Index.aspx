@@ -11,24 +11,35 @@
     <script src="CameraSupportClass.js" type="text/javascript"></script>
     <script src="Index.js" type="text/javascript"></script>
     <link href="CSS/Global.css" rel="stylesheet" type="text/css" />
-    <style>
-        video {
-            position:relative;
-            height:33%;
-        }
-        canvas {
-            display:none;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div data-role="page" id="wfindex">
             <div data-role="header" data-position="fixed">
-                <h1>Welcome</h1>
+                <h1>Login</h1>
             </div>
             <div data-role="content" style="height:100%;">
-                <video id="video" autoplay></video>
+                <div data-role="controlgroup">
+                    <div class="FloatingLabel">
+                        <label for="txtUserName"></label>
+                        <input name="txtUserName" id="txtUserName" />
+                    </div>
+                </div>
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a class="ui-btn ui-icon-camera" href="#wfscan">Scan key</a>
+                    <a class="ui-btn" href="#wfscan">Login</a>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <p>&nbsp;</p>
+            </div>
+        </div>    
+        <div data-role="page" id="wfscan">
+            <div data-role="header" data-position="fixed">
+                <h1>Scan key</h1>
+            </div>
+            <div data-role="content" style="height:100%;">
+                <video id="video" autoplay></video>
             </div>
             <div data-role="footer" data-position="fixed">
                 <p>&nbsp;</p>

@@ -33,6 +33,16 @@ function wfdashboardClass() {
                         )
                     }
                 });
+                m_Div.append(
+                    $('<a></a>')
+                        .addClass('ui-btn ui-icon-plus ui-btn-icon-left')
+                        .html("Add")
+                        .prop('href', "#")
+                        .on('click', function () {
+                            event.preventDefault();
+                            window.location = "Servicerequests.aspx?op=create";
+                        })
+                );
                 $('#servicerequestssummary').replaceWith(m_Div);
                 $('div[data-role]').trigger('create');
                 });
@@ -64,6 +74,26 @@ function wfdashboardClass() {
                         )
                     }
                 });
+                m_Div.append(
+                    $('<a></a>')
+                        .addClass('ui-btn ui-icon-plus ui-btn-icon-left')
+                        .html("Add")
+                        .prop('href', '#')
+                        .on('click', function () {
+                            event.preventDefault();
+                            window.location = "Workorders.aspx?op=create";
+                        })
+                );
+                m_Div.append(
+                    $('<a></a>')
+                        .addClass('ui-btn ui-icon-camera ui-btn-icon-left')
+                        .html("Scan")
+                        .prop('href', '#')
+                        .on('click', function () {
+                            event.preventDefault();
+                            window.location = "Workorders.aspx?op=scan";
+                        })
+                );
                 $('#workorderssummary').replaceWith(m_Div);
                 $('div[data-role]').trigger('create');
             });
@@ -95,6 +125,16 @@ function wfdashboardClass() {
                         )
                     }
                 });
+                m_Div.append(
+                    $('<a></a>')
+                        .addClass('ui-btn ui-icon-camera ui-btn-icon-left')
+                        .html("Scan")
+                        .prop('href', '#')
+                        .on('click', function () {
+                            event.preventDefault();
+                            window.location = "Equipments.aspx?op=scan";
+                        })
+                );
                 $('#equipmentssummary').replaceWith(m_Div);
                 $('div[data-role]').trigger('create');
             });
@@ -114,16 +154,16 @@ function wfdashboardClass() {
                     var m_Amount = m_Preventivemaintenancessummary[p_Index].Amount;
                     var m_AmountDescription = m_Preventivemaintenancessummary[p_Index].AmountDescription;
                     if (m_AmountDescription == 'yellow') {
-                        m_AmountDescriptionTemp += "<span class='yellowtext'>&nbsp;" + m_Amount + "&nbsp;</span>";
+                        m_AmountDescriptionTemp += "<span class='yellowtext'>" + m_Amount + "</span>&nbsp;";
                     } else if (m_AmountDescription == 'red') {
-                        m_AmountDescriptionTemp += "<span class='redtext'>&nbsp;" + m_Amount + "&nbsp;</span>";
+                        m_AmountDescriptionTemp += "<span class='redtext'>" + m_Amount + "</span>&nbsp;";
                     } else if (m_AmountDescription == 'green') {
-                        m_AmountDescriptionTemp += "<span class='greentext'>&nbsp;" + m_Amount + "&nbsp;</span>";
+                        m_AmountDescriptionTemp += "<span class='greentext'>" + m_Amount + "</span>&nbsp;";
                     } else {
                         m_Div.append(
                             $('<a></a>')
                                 .addClass('ui-btn')
-                                .html(m_Preventivemaintenancessummary[p_Index].AssignedTo + ':' + m_Amount + ' (' + m_AmountDescriptionTemp + ')')
+                                .html(m_Preventivemaintenancessummary[p_Index].AssignedTo + ':' + m_AmountDescriptionTemp)
                                 .prop('href', '#')
                                 .on('click', function () {
                                     event.preventDefault();

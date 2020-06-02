@@ -1,6 +1,8 @@
 ﻿$(document).ready(function window_onload() {
-    var wfindex = new wfindexClass();
-    wfindex.pageinit();
+    $(document).on("pagebeforeshow", "#wfscan", function (event) {
+        var wfindex = new wfindexClass();
+        wfindex.pageinit();
+    });
 });
 function wfindexClass() {
     this.pageinit = function () { 
