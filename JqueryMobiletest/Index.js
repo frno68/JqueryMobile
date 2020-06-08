@@ -1,10 +1,31 @@
 ﻿$(document).ready(function window_onload() {
+    var wfIndex = new wfIndexClass();
+    wfIndex.pageinit();
+
     $(document).on("pagebeforeshow", "#wfscan", function (event) {
-        var wfindex = new wfindexClass();
-        wfindex.pageinit();
+        var wfScan = new wfScanClass();
+        wfScan.pageinit();
     });
 });
-function wfindexClass() {
+function wfIndexClass() {
+    this.pageinit = function () {
+        $('#btnLogin').on('click', function () {
+            var LoginHandler = new LoginHandlerClass($('#txtUrl').val(), $('#txtUserName').val(), $('#txtPassword').val())
+            LoginHandler.Verify(
+                function (apiUrl, accessKey, userName, signatureIdentifier) {
+                    if ((apiUrl != "") && (accessKey != "")) {
+                        //These are used in the APIClass
+                        localStorage.apiUrl = apiUrl;
+                        localStorage.accessKey = accessKey;
+                        localStorage.userName = userName;
+                        localStorage.signatureIdentifier = signatureIdentifier;
+                        window.location = "Dashboard.aspx";
+                    }
+                });
+        });
+    }
+}
+function wfScanClass() {
     this.pageinit = function () { 
         var CameraSupport = new CameraSupportClass("video");
         setInterval(function () {
@@ -14,7 +35,6 @@ function wfindexClass() {
                         //These are used in the APIClass
                         localStorage.apiUrl = apiUrl;
                         localStorage.accessKey = accessKey;
-                        localStorage.userName = userName;
                         localStorage.userName = userName;
                         localStorage.signatureIdentifier = signatureIdentifier;
                         window.location = "Dashboard.aspx";

@@ -764,6 +764,8 @@
     <Content Include="Index.js" />
     <Content Include="Global.asax" />
     <Content Include="APIRelay.asmx" />
+    <Content Include="LoginHandlerClass.js" />
+    <Content Include="LoginHandler.asmx" />
     <Content Include="Preventivemaintenances.aspx" />
     <Content Include="Servicerequests.aspx" />
     <Content Include="Preventivemaintenances.aspx.js" />
@@ -1097,6 +1099,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API.vb" />
+    <Compile Include="CurrentUser.vb" />
     <Compile Include="Dashboard.aspx.designer.vb">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
@@ -1124,6 +1127,10 @@
     </Compile>
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LoginHandler.asmx.vb">
+      <DependentUpon>LoginHandler.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script src="ApiClass.js" type="text/javascript"></script>
     <script src="CameraSupportClass.js" type="text/javascript"></script>
+    <script src="LoginHandlerClass.js" type="text/javascript"></script>
     <script src="Index.js" type="text/javascript"></script>
     <link href="CSS/Global.css" rel="stylesheet" type="text/css" />
 </head>
@@ -16,18 +17,29 @@
     <form id="form1" runat="server">
         <div data-role="page" id="wfindex">
             <div data-role="header" data-position="fixed">
-                <h1>Login</h1>
+                <h1>Medusa mobile web</h1>
             </div>
             <div data-role="content" style="height:100%;">
                 <div data-role="controlgroup">
                     <div class="FloatingLabel">
-                        <label for="txtUserName"></label>
-                        <input name="txtUserName" id="txtUserName" />
+                        <label for="txtUrl">Url</label>
+                        <input id="txtUrl" value="http://medusa.softpro.se/SEHD" />
+                    </div>
+                    <div class="FloatingLabel">
+                        <label for="txtUserName">User Name</label>
+                        <input id="txtUserName" value="swe"/>
+                    </div>
+                    <div class="FloatingLabel">
+                        <label for="txtPassword">Password</label>
+                        <input id="txtPassword" value="swe"/>
+                    </div>
+                    <div id="popupBasic" data-role="popup">
+                        <p>This is a completely basic popup, no options set.</p>
                     </div>
                 </div>
                 <div data-role="controlgroup" data-type="horizontal">
                     <a class="ui-btn ui-icon-camera" href="#wfscan">Scan key</a>
-                    <a class="ui-btn" href="#wfscan">Login</a>
+                    <a class="ui-btn" id="btnLogin" href="#">Login</a>
                 </div>
             </div>
             <div data-role="footer" data-position="fixed">

@@ -5,7 +5,7 @@ function APIClass() {
     //var _EndPoint = 'http://support.softpro.se/support';
     //var _Authorization = 'Authorization:Basic OTk0NzI3NWItZWY1OC00NDNlLThlYjItMDUxMTg3M2U1ODAy';
     var _EndPoint = localStorage.apiUrl;
-    var _Authorization = 'Authorization:Basic ' + localStorage.accessKey;
+    var _AccessKey = localStorage.accessKey;
     //this.SetApiUrl = function (p_ApiUrl) {
     //    _EndPoint = p_ApiUrl;
     //};
@@ -16,7 +16,7 @@ function APIClass() {
     this.GET = function (p_Resource, p_Callback) {
         var m_Data = '{'
         m_Data = m_Data + '"p_EndPoint":"' + _EndPoint + '"'
-        m_Data = m_Data + ',"p_Authorization":"' + _Authorization + '"'
+        m_Data = m_Data + ',"p_AccessKey":"' + _AccessKey + '"'
         m_Data = m_Data + ',"p_Resource":"' + escape(p_Resource) + '"'
         m_Data = m_Data + '}'
         $.ajax({
@@ -39,7 +39,7 @@ function APIClass() {
         p_Json = '[' + p_Json + ']'
         var m_Data = '{'
         m_Data = m_Data + '"p_EndPoint":"' + _EndPoint + '"'
-        m_Data = m_Data + ',"p_Authorization":"' + _Authorization + '"'
+        m_Data = m_Data + ',"p_AccessKey":"' + _AccessKey + '"'
         m_Data = m_Data + ',"p_Resource":"' + escape(p_Resource) + '"'
         m_Data = m_Data + ',"p_Data":"' + escape(p_Json) + '"'
         m_Data = m_Data + '}'
@@ -63,7 +63,7 @@ function APIClass() {
         p_Json = '[' + p_Json + ']'
         var m_Data = '{'
         m_Data = m_Data + '"p_EndPoint":"' + _EndPoint + '"'
-        m_Data = m_Data + ',"p_Authorization":"' + _Authorization + '"'
+        m_Data = m_Data + ',"p_AccessKey":"' + _AccessKey + '"'
         m_Data = m_Data + ',"p_Resource":"' + escape(p_Resource) + '"'
         m_Data = m_Data + ',"p_Data":"' + escape(p_Json) + '"'
         m_Data = m_Data + '}'
@@ -85,7 +85,7 @@ function APIClass() {
     this.DELETE = function (p_Resource, p_Callback) {
         var m_Data = '{'
         m_Data = m_Data + '"p_EndPoint":"' + _EndPoint + '"'
-        m_Data = m_Data + ',"p_Authorization":"' + _Authorization + '"'
+        m_Data = m_Data + ',"p_AccessKey":"' + _AccessKey + '"'
         m_Data = m_Data + ',"p_Resource":"' + escape(p_Resource) + '"'
         m_Data = m_Data + '}'
         $.ajax({
